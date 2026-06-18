@@ -1,54 +1,67 @@
-const monthYear = document.getElementById("monthYear");
-const daysContainer = document.getElementById("days");
+const dias = document.getElementById("dias");
+const mesAno = document.getElementById("mesAno");
+const dataAtual = document.getElementById("dataAtual");
 
-let currentDate = new Date();
+let data = new Date();
 
 const meses = [
-  "Janeiro", "Fevereiro", "Março", "Abril",
-  "Maio", "Junho", "Julho", "Agosto",
-  "Setembro", "Outubro", "Novembro", "Dezembro"
+    "Janeiro","Fevereiro","Março","Abril",
+    "Maio","Junho","Julho","Agosto",
+    "Setembro","Outubro","Novembro","Dezembro"
 ];
 
-function renderCalendar() {
-  daysContainer.innerHTML = "";
+function mostrarDataAtual(){
+    let hoje = new Date();
 
-  let ano = currentDate.getFullYear();
-  let mes = currentDate.getMonth();
-
-  monthYear.textContent = `${meses[mes]} ${ano}`;
-
-  let primeiroDia = new Date(ano, mes, 1).getDay();
-  let ultimoDia = new Date(ano, mes + 1, 0).getDate();
-
-  for (let i = 0; i < primeiroDia; i++) {
-    let vazio = document.createElement("div");
-    daysContainer.appendChild(vazio);
-  }
-
-  for (let dia = 1; dia <= ultimoDia; dia++) {
-    let divDia = document.createElement("div");
-    divDia.textContent = dia;
-
-    if (
-      dia === new Date().getDate() &&
-      mes === new Date().getMonth() &&
-      ano === new Date().getFullYear()
-    ) {
-      divDia.classList.add("hoje");
-    }
-
-    daysContainer.appendChild(divDia);
-  }
+    dataAtual.innerHTML =
+        hoje.getDate() + "/" +
+        (hoje.getMonth()+1) + "/" +
+        hoje.getFullYear();
 }
 
-document.getElementById("prev").addEventListener("click", () => {
-  currentDate.setMonth(currentDate.getMonth() - 1);
-  renderCalendar();
-});
+function gerarCalendario(){
+    dias.innerHTML = "";
 
-document.getElementById("next").addEventListener("click", () => {
-  currentDate.setMonth(currentDate.getMonth() + 1);
-  renderCalendar();
-});
+    let ano = data.getFullYear();
+    let mes = data.getMonth();
 
-renderCalendar();
+    mesAno.innerHTML = meses[mes] + " " + ano;
+
+    let primeiroDia = new Date(ano, mes, 1).getDay();
+    let ultimoDia = new Date(ano, mes + 1, 0).getDate();
+
+    for(let i=0; i<primeiroDia; i++){
+        dias.innerHTML += "<div></div>";
+    }
+
+    for(let dia=1; dia<=ultimoDia; dia++){
+
+        let elemento = document.createElement("div");
+        elemento.textContent = dia;
+
+        let hoje = new Date();
+
+        if(
+            dia === hoje.getDate() &&
+            mes === hoje.getMonth() &&
+            ano === hoje.getFullYear()
+        ){
+            elemento.classList.add("hoje");
+        }
+
+        dias.appendChild(elemento);
+    }
+}
+
+document.getElementById("anterior").onclick = () =>{
+    data.setMonth(data.getMonth()-1);
+    gerarCalendario();
+};
+
+document.getElementById("proximo").onclick = () =>{
+    data.setMonth(data.getMonth()+1);
+    gerarCalendario();
+};
+
+mostrarDataAtual();
+gerarCalendario();
