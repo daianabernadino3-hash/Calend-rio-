@@ -1,73 +1,74 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #1e293b, #0f172a);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
 }
 
-.container {
-    text-align: center;
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(#2c3440,#0f172a);
+    color:white;
 }
 
-h1 {
-    font-size: 48px;
-    margin-bottom: 30px;
+.container{
+    text-align:center;
 }
 
-.idioma {
-    margin-bottom: 20px;
+h1{
+    font-size:50px;
+    margin-bottom:20px;
 }
 
-select {
-    padding: 8px;
-    border-radius: 5px;
-    border: none;
+.data-atual{
+    margin-bottom:20px;
+    font-size:18px;
 }
 
-.calendar {
-    width: 350px;
-    border: 2px solid rgba(255,255,255,0.3);
-    border-radius: 15px;
-    padding: 20px;
-    background: rgba(255,255,255,0.05);
+.calendario{
+    width:400px;
+    padding:20px;
+    border:2px solid rgba(255,255,255,.3);
+    border-radius:15px;
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.cabecalho{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
 }
 
-.header button {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
+.cabecalho button{
+    background:none;
+    border:none;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
 }
 
-.weekdays,
-.days {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    margin-top: 15px;
-    gap: 10px;
+.dias-semana,
+.dias{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:10px;
 }
 
-.weekdays div {
-    font-weight: bold;
+.dias-semana{
+    margin-bottom:15px;
+    font-weight:bold;
 }
 
-.days div {
-    padding: 10px;
-    border-radius: 50%;
+.dias div{
+    padding:8px;
+    border-radius:50%;
 }
 
-.days div:hover {
-    background: rgba(255,255,255,0.2);
-    cursor: pointer;
+.hoje{
+    background:white;
+    color:black;
+    font-weight:bold;
 }
