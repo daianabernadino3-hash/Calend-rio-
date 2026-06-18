@@ -8,38 +8,29 @@
 </head>
 <body>
 
-<div class="container">
-    <h1>Calendário</h1>
+    <div class="container">
+        <h1>Calendário</h1>
 
-    <div class="idioma">
-        <label>Selecione uma linguagem</label>
-        <select id="language">
-            <option value="pt-BR">Português</option>
-            <option value="en-US">English</option>
-        </select>
-    </div>
-
-    <div class="calendar">
-        <div class="header">
-            <button id="prev">&#10094;</button>
-            <h2 id="monthYear"></h2>
-            <button id="next">&#10095;</button>
+        <div class="idioma">
+            <label>Selecione uma linguagem</label>
+            <select id="language">
+                <option value="pt">Português</option>
+                <option value="en">English</option>
+            </select>
         </div>
 
-        <div class="weekdays">
-            <div>Dom.</div>
-            <div>Seg.</div>
-            <div>Ter.</div>
-            <div>Qua.</div>
-            <div>Qui.</div>
-            <div>Sex.</div>
-            <div>Sáb.</div>
+        <div class="calendar">
+            <div class="header">
+                <button id="prev">&lt;</button>
+                <h2 id="monthYear"></h2>
+                <button id="next">&gt;</button>
+            </div>
+
+            <div class="weekdays" id="weekdays"></div>
+            <div class="days" id="days"></div>
         </div>
-
-        <div id="days" class="days"></div>
     </div>
-</div>
 
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
